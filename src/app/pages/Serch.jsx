@@ -22,8 +22,10 @@ export default function Serch() {
     async function load() {
       setLoadingSync(true)
       try {
-        await fetch('http://localhost:3000/biblioteca/sync-aggregates', { method: 'POST' })
-        const resp = await fetch('http://localhost:3000/biblioteca/aggregates')
+        const API_URL = import.meta.env.VITE_API_URL
+
+await fetch(`${API_URL}/biblioteca/sync-aggregates`, { method: 'POST' })
+const resp = await fetch(`${API_URL}/biblioteca/aggregates`)
         const docs = await resp.json()
         setAggregates(docs || [])
       } catch (err) {
