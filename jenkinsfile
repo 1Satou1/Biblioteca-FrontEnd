@@ -35,12 +35,12 @@ pipeline {
 
   post {
     failure {
-      mail to: 'tucorreo@ejemplo.com',
+      mail to: 'migueltamayo978@gmail.com',
            subject: 'Pipeline falló - Biblioteca Frontend',
            body: 'El código no pasó el análisis de SonarQube.'
     }
     success {
-      mail to: 'tucorreo@ejemplo.com',
+      mail to: 'migueltamayo978@gmail.com',
            subject: 'Pipeline exitoso - Biblioteca Frontend',
            body: 'El código pasó SonarQube. Vercel desplegará automáticamente.'
     }
