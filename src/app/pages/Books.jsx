@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from '../../services/supabaseClient.js'
+
 
 const ROL_LABELS = { 2: 'lector', 3: 'bibliotecario', 4: 'admin' }
 
