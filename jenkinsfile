@@ -29,14 +29,14 @@ pipeline {
 
   post {
     failure {
-      mail to: 'migueltamayo978@gmail.com',
-           subject: 'Pipeline falló - Biblioteca Frontend',
-           body: 'El código no pasó el análisis de SonarQube.'
+      emailext to: 'migueltamayo978@gmail.com',
+               subject: 'Pipeline falló - Biblioteca Frontend',
+               body: 'El código no pasó el análisis de SonarQube.'
     }
     success {
-      mail to: 'migueltamayo978@gmail.com',
-           subject: 'Pipeline exitoso - Biblioteca Frontend',
-           body: 'El código pasó SonarQube. Vercel desplegará automáticamente.'
+      emailext to: 'migueltamayo978@gmail.com',
+               subject: 'Pipeline exitoso - Biblioteca Frontend',
+               body: 'El código pasó SonarQube. Vercel desplegará automáticamente.'
     }
   }
 }
