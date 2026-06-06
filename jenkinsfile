@@ -1,22 +1,19 @@
 pipeline {
   agent any
-
-  triggers { pollSCM('* * * * *') }
-
+  triggers {
+    pollSCM('* * * * *')
+  }
   stages {
-
     stage('Instalar dependencias') {
       steps {
         bat 'npm ci'
       }
     }
-
     stage('Build') {
       steps {
         bat 'npm run build'
       }
     }
-
     stage('Análisis SonarQube') {
       steps {
         withSonarQubeEnv('SonarServer') {
@@ -24,9 +21,7 @@ pipeline {
         }
       }
     }
-
   }
-
   post {
     failure {
       emailext to: 'migueltamayo978@gmail.com',
