@@ -31,24 +31,18 @@ pipeline {
       }
     }
 
-    stage('Deploy producción') {
-      steps {
-        sh 'rsync -avz dist/ usuario@servidor:/var/www/html/biblioteca/'
-      }
-    }
-
   }
 
   post {
     failure {
-      mail to: 'dev@ejemplo.com',
+      mail to: 'tucorreo@ejemplo.com',
            subject: 'Pipeline falló - Biblioteca Frontend',
-           body: 'SonarQube detectó problemas en el código. Revisa el reporte.'
+           body: 'El código no pasó el análisis de SonarQube.'
     }
     success {
-      mail to: 'dev@ejemplo.com',
-           subject: 'Deploy exitoso - Biblioteca Frontend',
-           body: 'El frontend pasó SonarQube y fue desplegado correctamente.'
+      mail to: 'tucorreo@ejemplo.com',
+           subject: 'Pipeline exitoso - Biblioteca Frontend',
+           body: 'El código pasó SonarQube. Vercel desplegará automáticamente.'
     }
   }
 }
