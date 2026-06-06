@@ -20,7 +20,7 @@ pipeline {
     stage('Análisis SonarQube') {
       steps {
         withSonarQubeEnv('SonarServer') {
-          bat 'npx sonar-scanner'
+          bat 'npx sonar-scanner -Dsonar.organization=1satou1 -Dsonar.projectKey=1Satou1_Biblioteca-FrontEnd -Dsonar.sources=src -Dsonar.host.url=https://sonarcloud.io'
         }
       }
     }
