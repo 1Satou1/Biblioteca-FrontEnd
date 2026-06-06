@@ -7,20 +7,20 @@ pipeline {
 
     stage('Instalar dependencias') {
       steps {
-        sh 'npm ci'
+        bat 'npm ci'
       }
     }
 
     stage('Build') {
       steps {
-        sh 'npm run build'
+        bat 'npm run build'
       }
     }
 
     stage('Análisis SonarQube') {
       steps {
         withSonarQubeEnv('SonarServer') {
-          sh 'npx sonar-scanner'
+          bat 'npx sonar-scanner'
         }
       }
     }
